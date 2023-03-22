@@ -6,6 +6,7 @@
 
 ## Usage
 
+Pretrained models are in the fold "/habitat-baselines/model/" and are from Habitat-baselines in [Habitat-Lab](https://github.com/facebookresearch/habitat-lab)
 
 ## Citation
 
