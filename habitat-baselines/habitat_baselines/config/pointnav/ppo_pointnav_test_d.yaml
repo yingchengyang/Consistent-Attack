@@ -4,8 +4,6 @@
 habitat_baselines:
   verbose: False
 
-#  base_task_config_path: "habitat-lab/habitat/config/tasks/pointnav.yaml"
-#  base_task_config_path: "habitat-baselines/habitat_baselines/config/tasks/pointnav.yaml"
   base_task_config_path: "habitat-baselines/habitat_baselines/config/tasks/pointnav_habitat_test.yaml"
   trainer_name: "ppo"
   simulator_gpu_id: 0
@@ -17,13 +15,9 @@ habitat_baselines:
   # To evaluate on all episodes, set this to -1
   test_episode_count: 99
   num_environments: 1
-#  eval_ckpt_path_dir: "data/new_checkpoints"
-#  eval_ckpt_path_dir: "/data/chengyang/habitat-result/model"
-  eval_ckpt_path_dir: "/data/chengyang/habitat-result/model/gibson-depth-best.pth"
+  eval_ckpt_path_dir: "habitat-baselines/model/gibson-depth-best.pth"
   sensors: ["depth_sensor"]
-  # sensors: ["rgb_sensor", "depth_sensor"]
-#  checkpoint_folder: "data/new_checkpoints"
-  checkpoint_folder: "/data/chengyang/habitat-result/result"
+  checkpoint_folder: "data/new_checkpoints"
   num_updates: -1
   total_num_steps: 1e6
   log_interval: 10
