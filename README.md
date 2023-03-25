@@ -4,7 +4,7 @@
 
 - The code is based on [Habitat-Lab](https://github.com/facebookresearch/habitat-lab)
 
-## Usage
+## Installation
 
 ```
 git clone this repo
@@ -12,14 +12,18 @@ git clone this repo
 cd Consistent-Attack
 conda create -n consistent-attack python=3.7
 conda activate consistent-attack
+```
 
-Then you need to install [habitat-sim](https://github.com/facebookresearch/habitat-sim#installation).
+Then you need to install [habitat-sim](https://github.com/facebookresearch/habitat-sim#installation) and then 
 
+```
 pip install -e habitat-lab
 pip install -e habitat-baselines
 pip install numpy
 pip install torch
 ```
+
+## Usage
 
 Then you can run the attack code like
 ```
