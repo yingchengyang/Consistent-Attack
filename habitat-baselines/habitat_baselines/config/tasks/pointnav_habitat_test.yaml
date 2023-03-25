@@ -32,5 +32,5 @@ habitat:
     type: PointNav-v1
     split: val
     #    data_path: data/datasets/pointnav/gibson/v1/{split}/{split}.json.gz
-    data_path: /data/chengyang/habitat_material/data/datasets/pointnav_habitat_test/habitat-test-scenes/v1/{split}/{split}.json.gz
-    scenes_dir: /data/chengyang/habitat_material/data/scene_datasets/habitat_test_habitat
+    data_path: scene_data/datasets/pointnav_habitat_test/habitat-test-scenes/v1/{split}/{split}.json.gz
+    scenes_dir: scene_data/scene_datasets/habitat_test_habitat

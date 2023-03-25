@@ -142,15 +142,23 @@ class BaseTrainer:
             ), "Must specify a directory for storing videos on disk"
 
         print("5", self.config.habitat_baselines.eval_ckpt_path_dir)
+        print("dataset path", os.path.join(os.path.abspath(os.path.join(os.getcwd(), "..")),
+                                           self.config.habitat.dataset.data_path))
+        self.config.habitat.dataset.data_path = os.path.join(os.path.abspath(os.path.join(os.getcwd(), "..")),
+                                                             self.config.habitat.dataset.data_path)
+        self.config.habitat.dataset.scenes_dir = os.path.join(os.path.abspath(os.path.join(os.getcwd(), "..")),
+                                                              self.config.habitat.dataset.scenes_dir)
 
         with get_writer(self.config, flush_secs=self.flush_secs) as writer:
             print("6", self.config.habitat_baselines.eval_ckpt_path_dir)
             print(os.path.isfile(
                     self.config.habitat_baselines.eval_ckpt_path_dir
                 ))
+            Current_Path = os.path.join(os.path.abspath(os.path.join(os.getcwd(), "..")),
+                                        self.config.habitat_baselines.eval_ckpt_path_dir)
             if (
                 os.path.isfile(
-                    self.config.habitat_baselines.eval_ckpt_path_dir
+                    Current_Path
                 )
                 or not self.config.habitat_baselines.eval.should_load_ckpt
             ):
@@ -160,7 +168,7 @@ class BaseTrainer:
 
                 if self.config.habitat_baselines.eval.should_load_ckpt:
                     proposed_index = get_checkpoint_id(
-                        self.config.habitat_baselines.eval_ckpt_path_dir
+                        Current_Path
                     )
                 else:
                     proposed_index = None
@@ -179,7 +187,7 @@ class BaseTrainer:
                 elif evaluate_strategy == 3:
                     print("We evaluate the model under Trajectory UAP")
                 self._eval_attacked_checkpoint(
-                    self.config.habitat_baselines.eval_ckpt_path_dir,
+                    Current_Path,
                     writer,
                     checkpoint_index=ckpt_idx,
                     evaluate_strategy=evaluate_strategy
@@ -189,9 +197,9 @@ class BaseTrainer:
                 while True:
                     current_ckpt = None
                     while current_ckpt is None:
-                        print(self.config.habitat_baselines.eval_ckpt_path_dir)
+                        print(Current_Path)
                         current_ckpt = poll_checkpoint_folder(
-                            self.config.habitat_baselines.eval_ckpt_path_dir,
+                            Current_Path,
                             prev_ckpt_ind,
                         )
                         print(current_ckpt)

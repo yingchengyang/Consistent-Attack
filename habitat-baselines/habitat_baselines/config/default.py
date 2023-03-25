@@ -3,7 +3,7 @@
 # Copyright (c) Facebook, Inc. and its affiliates.
 # This source code is licensed under the MIT license found in the
 # LICENSE file in the root directory of this source tree.
-
+import os
 import warnings
 from typing import List, Optional, Union
 
@@ -21,7 +21,7 @@ _C = CN()
 _C.habitat_baselines = CN()
 # task config can be a list of conifgs like "A.yaml,B.yaml"
 _C.habitat_baselines.base_task_config_path = (
-    "/data/chengyang/habitat-lab/habitat-lab/habitat/config/tasks/pointnav.yaml"
+    "YOU_NEED_ADD_TASK_CONFIG_PATH"
 )
 _C.habitat_baselines.cmd_trailing_opts = (
     []
@@ -354,10 +354,10 @@ def get_config(
             if k == "base_task_config_path":
                 baselines_config.base_task_config_path = v
 
-    baselines_config.base_task_config_path = '/data/chengyang/habitat-lab/' + \
-                                             baselines_config.base_task_config_path
+    print("Current path is:", os.getcwd())
     config.merge_from_other_cfg(
-        get_task_config(baselines_config.base_task_config_path)
+        get_task_config(os.path.join(os.getcwd(),
+                                     baselines_config.base_task_config_path))
     )
 
     # In case the config specifies overrides for the habitat config, we
@@ -379,5 +379,5 @@ def get_config(
 
         baselines_config.num_environments = baselines_config.num_processes
 
-    config.freeze()
+    # config.freeze()
     return config
