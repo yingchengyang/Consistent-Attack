@@ -15,7 +15,7 @@ habitat_baselines:
   # To evaluate on all episodes, set this to -1
   test_episode_count: 494
   num_environments: 1
-  eval_ckpt_path_dir: "habitat-baselines/model/mp3d-rgb-best.pth"
+  eval_ckpt_path_dir: "model/mp3d-rgb-best.pth"
   sensors: ["rgb_sensor"]
   checkpoint_folder: "data/new_checkpoints"
   num_updates: -1
