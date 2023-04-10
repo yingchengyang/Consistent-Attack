@@ -1,5 +1,7 @@
 # Consistent-Attack
 
+[![arXiv](https://img.shields.io/badge/arXiv-2206.05751-b31b1b.svg)](https://arxiv.org/abs/2206.05751)
+
 - This is the official implementation for [Consistent Attack: Universal Adversarial Perturbation on Embodied Vision Navigation](https://arxiv.org/pdf/2206.05751.pdf) (Accepted in Pattern Recognition Letters (PRL) 2023).
 
 - The code is based on [Habitat-Lab](https://github.com/facebookresearch/habitat-lab)
